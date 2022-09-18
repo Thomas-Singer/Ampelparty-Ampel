@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "STM32G0")(type "Legacy")(uri "${KIPRJMOD}/STM32G0.lib")(options "")(descr ""))
+  (lib (name "TYPE-C-31-M-17")(type "Legacy")(uri "/home/thomas/Projekte/ampelparty-ampel/Layout/Libs/TYPE-C-31-M-17.pretty/TYPE-C-31-M-17.lib")(options "")(descr ""))
+  (lib (name "Ampel-rescue")(type "Legacy")(uri "${KIPRJMOD}/Ampel-rescue.lib")(options "")(descr ""))
+)
