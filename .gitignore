@@ -79,3 +79,5 @@ Ampel-backups/
 *.mxproject
 *.s
 Drivers/
+Debug/
+*.launch
