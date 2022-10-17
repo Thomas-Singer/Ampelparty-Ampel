@@ -12,7 +12,7 @@
 #include "ws2812b.h"
 #include "main.h"
 
-#define LED_NO  10
+#define LED_NO  19
 #define LED_BUFFER_LENGTH (LED_NO*16)
 
 #define std_r 100
@@ -36,7 +36,7 @@ void encode_byte( uint8_t data, int16_t buffer_index )
    encode3 = 0x00;
    encode4 = 0x00;
    //1100 for 1
-   //100 for 0
+   //1000 for 0
    //encode first bit
    help = data>>7;
    encode1 |= 0x08;
@@ -100,12 +100,13 @@ void generate_ws_buffer( uint8_t RData,uint8_t GData,uint8_t BData, int16_t led_
 void send_ws2812b(void)
  {
 	//if (1){
-    HAL_SPI_Transmit_DMA( &hspi1, ws_buffer, LED_BUFFER_LENGTH );
+    //HAL_SPI_Transmit_DMA( &hspi1, ws_buffer, LED_BUFFER_LENGTH );
     // wait until finished
-    while(__HAL_SPI_GET_FLAG(&hspi1, SPI_FLAG_BSY ));
+    //while(__HAL_SPI_GET_FLAG(&hspi1, SPI_FLAG_BSY ));
 	//}//else{
     //HAL_SPI_Transmit( &hspi1, ws_buffer, LED_BUFFER_LENGTH, 300 );
 	//}
+	HAL_SPI_Transmit(&hspi1, ws_buffer, LED_BUFFER_LENGTH, 1000);
  }
 
 void setAllPixelColor(uint8_t r, uint8_t g, uint8_t b)
